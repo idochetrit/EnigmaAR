@@ -7,25 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3428E4792083AF200058C07F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428E4782083AF200058C07F /* Utilities.swift */; };
+		3428E47E2083B0170058C07F /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428E47D2083B0170058C07F /* Plane.swift */; };
+		34527849208254BE003D3ECD /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34527848208254BE003D3ECD /* Bullet.swift */; };
+		3452784B2082550A003D3ECD /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784A2082550A003D3ECD /* Alien.swift */; };
+		3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784C2082557C003D3ECD /* CollisonCategory.swift */; };
+		34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */; };
 		34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A2207821C300B46476 /* AppDelegate.swift */; };
 		34FCE9A5207821C300B46476 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A4207821C300B46476 /* art.scnassets */; };
-		34FCE9A7207821C300B46476 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A6207821C300B46476 /* HomeViewController.swift */; };
+		34FCE9A7207821C300B46476 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A6207821C300B46476 /* HomeTabViewController.swift */; };
 		34FCE9AA207821C300B46476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A8207821C300B46476 /* Main.storyboard */; };
 		34FCE9AC207821C300B46476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AB207821C300B46476 /* Assets.xcassets */; };
 		34FCE9AF207821C300B46476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */; };
-		34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9B62078259400B46476 /* QuestViewController.swift */; };
+		34FCE9B72078259400B46476 /* QuestTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9B62078259400B46476 /* QuestTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3428E4782083AF200058C07F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		3428E47D2083B0170058C07F /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
+		34527848208254BE003D3ECD /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		3452784A2082550A003D3ECD /* Alien.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
+		3452784C2082557C003D3ECD /* CollisonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisonCategory.swift; sourceTree = "<group>"; };
+		34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		34FCE99F207821C300B46476 /* EnigmaAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnigmaAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FCE9A2207821C300B46476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34FCE9A4207821C300B46476 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		34FCE9A6207821C300B46476 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		34FCE9A6207821C300B46476 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		34FCE9A9207821C300B46476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34FCE9AB207821C300B46476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34FCE9AE207821C300B46476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34FCE9B0207821C300B46476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34FCE9B62078259400B46476 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
+		34FCE9B62078259400B46476 /* QuestTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +51,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3428E47A2083AFF20058C07F /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				3452784C2082557C003D3ECD /* CollisonCategory.swift */,
+				34527848208254BE003D3ECD /* Bullet.swift */,
+				3452784A2082550A003D3ECD /* Alien.swift */,
+				3428E47D2083B0170058C07F /* Plane.swift */,
+			);
+			name = "UI Elements";
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		34FCE996207821C300B46476 = {
 			isa = PBXGroup;
 			children = (
@@ -60,12 +84,15 @@
 			children = (
 				34FCE9A2207821C300B46476 /* AppDelegate.swift */,
 				34FCE9A4207821C300B46476 /* art.scnassets */,
-				34FCE9A6207821C300B46476 /* HomeViewController.swift */,
-				34FCE9B62078259400B46476 /* QuestViewController.swift */,
+				34FCE9B62078259400B46476 /* QuestTabViewController.swift */,
+				34FCE9A6207821C300B46476 /* HomeTabViewController.swift */,
+				34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */,
 				34FCE9A8207821C300B46476 /* Main.storyboard */,
 				34FCE9AB207821C300B46476 /* Assets.xcassets */,
+				3428E4782083AF200058C07F /* Utilities.swift */,
 				34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */,
 				34FCE9B0207821C300B46476 /* Info.plist */,
+				3428E47A2083AFF20058C07F /* UI Elements */,
 			);
 			path = EnigmaAR;
 			sourceTree = "<group>";
@@ -97,7 +124,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Ido Chetrit";
 				TargetAttributes = {
 					34FCE99E207821C300B46476 = {
@@ -143,9 +170,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34FCE9A7207821C300B46476 /* HomeViewController.swift in Sources */,
+				34FCE9A7207821C300B46476 /* HomeTabViewController.swift in Sources */,
+				3428E47E2083B0170058C07F /* Plane.swift in Sources */,
+				34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */,
 				34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */,
-				34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */,
+				34FCE9B72078259400B46476 /* QuestTabViewController.swift in Sources */,
+				3452784B2082550A003D3ECD /* Alien.swift in Sources */,
+				3428E4792083AF200058C07F /* Utilities.swift in Sources */,
+				3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */,
+				34527849208254BE003D3ECD /* Bullet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +218,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -192,6 +226,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -242,6 +277,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -249,6 +285,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
