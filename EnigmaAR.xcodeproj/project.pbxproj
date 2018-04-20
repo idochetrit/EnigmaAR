@@ -15,11 +15,11 @@
 		34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */; };
 		34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A2207821C300B46476 /* AppDelegate.swift */; };
 		34FCE9A5207821C300B46476 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A4207821C300B46476 /* art.scnassets */; };
-		34FCE9A7207821C300B46476 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A6207821C300B46476 /* HomeTabViewController.swift */; };
+		34FCE9A7207821C300B46476 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A6207821C300B46476 /* HomeViewController.swift */; };
 		34FCE9AA207821C300B46476 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A8207821C300B46476 /* Main.storyboard */; };
 		34FCE9AC207821C300B46476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AB207821C300B46476 /* Assets.xcassets */; };
 		34FCE9AF207821C300B46476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */; };
-		34FCE9B72078259400B46476 /* QuestTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9B62078259400B46476 /* QuestTabViewController.swift */; };
+		34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9B62078259400B46476 /* QuestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +32,12 @@
 		34FCE99F207821C300B46476 /* EnigmaAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnigmaAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FCE9A2207821C300B46476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34FCE9A4207821C300B46476 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		34FCE9A6207821C300B46476 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		34FCE9A6207821C300B46476 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		34FCE9A9207821C300B46476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		34FCE9AB207821C300B46476 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34FCE9AE207821C300B46476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34FCE9B0207821C300B46476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34FCE9B62078259400B46476 /* QuestTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestTabViewController.swift; sourceTree = "<group>"; };
+		34FCE9B62078259400B46476 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 			children = (
 				34FCE9A2207821C300B46476 /* AppDelegate.swift */,
 				34FCE9A4207821C300B46476 /* art.scnassets */,
-				34FCE9B62078259400B46476 /* QuestTabViewController.swift */,
-				34FCE9A6207821C300B46476 /* HomeTabViewController.swift */,
+				34FCE9B62078259400B46476 /* QuestViewController.swift */,
+				34FCE9A6207821C300B46476 /* HomeViewController.swift */,
 				34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */,
 				34FCE9A8207821C300B46476 /* Main.storyboard */,
 				34FCE9AB207821C300B46476 /* Assets.xcassets */,
@@ -170,11 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34FCE9A7207821C300B46476 /* HomeTabViewController.swift in Sources */,
+				34FCE9A7207821C300B46476 /* HomeViewController.swift in Sources */,
 				3428E47E2083B0170058C07F /* Plane.swift in Sources */,
 				34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */,
 				34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */,
-				34FCE9B72078259400B46476 /* QuestTabViewController.swift in Sources */,
+				34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */,
 				3452784B2082550A003D3ECD /* Alien.swift in Sources */,
 				3428E4792083AF200058C07F /* Utilities.swift in Sources */,
 				3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */,

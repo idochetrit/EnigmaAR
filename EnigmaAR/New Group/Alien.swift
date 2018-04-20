@@ -25,7 +25,7 @@ class Alien: SCNNode {
     self.physicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
     self.physicsBody?.isAffectedByGravity = false
     
-    self.physicsBody?.categoryBitMask = CollisionCategory.ship.rawValue
+    self.physicsBody?.categoryBitMask = CollisionCategory.alien.rawValue
     self.physicsBody?.contactTestBitMask = CollisionCategory.bullets.rawValue
     
     self.scale = SCNVector3(0.5, 0.5, 0.5)
