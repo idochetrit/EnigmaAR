@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  EnigmaAR
 //
 //  Created by Ido Chetrit on 07/04/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import ARKit
 
-class HomeTabViewController: UIViewController, SCNPhysicsContactDelegate {
+class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
 
   @IBOutlet weak var sceneView: ARSCNView!
   var screenCenter: CGPoint?
@@ -19,7 +19,6 @@ class HomeTabViewController: UIViewController, SCNPhysicsContactDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     
     // Show statistics such as fps and timing information
     configureLighting()
@@ -64,6 +63,50 @@ class HomeTabViewController: UIViewController, SCNPhysicsContactDelegate {
     bulletsNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
     
+  }
+  
+  func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
+    
+    // Play collision sound for all collisions (bullet-bullet, etc.)
+    
+//    self.playSoundEffect(ofType: .collision)
+    
+    if explosion {
+      
+      // Play explosion sound for bullet-ship collisions
+      
+//      self.playSoundEffect(ofType: .explosion)
+      
+//      let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: nil)
+      let systemNode = SCNNode()
+//      systemNode.addParticleSystem(particleSystem!)
+      // place explosion where node is
+      systemNode.position = node.position
+      sceneView.scene.rootNode.addChildNode(systemNode)
+    }
+    
+    // remove node
+    node.removeFromParentNode()
+  }
+  
+  
+  // MARK: - Contact Delegate
+  
+  func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+    //print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask, contact.nodeB.physicsBody!.categoryBitMask)
+    if contact.nodeA.physicsBody?.categoryBitMask == CollisionCategory.alien.rawValue || contact.nodeB.physicsBody?.categoryBitMask == CollisionCategory.alien.rawValue { // this conditional is not required--we've used the bit masks to ensure only one type of collision takes place--will be necessary as soon as more collisions are created/enabled
+      
+      print("Hit alien!")
+      self.removeNodeWithAnimation(contact.nodeB, explosion: false) // remove the bullet
+//      self.userScore += 1
+      
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        // remove/replace ship after half a second to visualize collision
+        self.removeNodeWithAnimation(contact.nodeA, explosion: true)
+        self.addAlienNode()
+      })
+      
+    }
   }
   
    // MARK: - Game Functionality

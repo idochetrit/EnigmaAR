@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestTabViewController: UIViewController {
+class QuestViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

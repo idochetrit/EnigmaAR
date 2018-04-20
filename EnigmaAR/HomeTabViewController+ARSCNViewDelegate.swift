@@ -1,5 +1,5 @@
 //
-//  HomeTabViewController+ARSCNViewDelegate.swift
+//  HomeViewController+ARSCNViewDelegate.swift
 //  EnigmaAR
 //
 //  Created by Ido Chetrit on 14/04/2018.
@@ -8,7 +8,7 @@
 
 import ARKit
 
-extension HomeTabViewController : ARSCNViewDelegate {
+extension HomeViewController : ARSCNViewDelegate {
   
   // MARK: - ARSCNViewDelegate
   
