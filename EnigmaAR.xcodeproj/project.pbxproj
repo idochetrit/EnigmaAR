@@ -12,6 +12,7 @@
 		34527849208254BE003D3ECD /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34527848208254BE003D3ECD /* Bullet.swift */; };
 		3452784B2082550A003D3ECD /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784A2082550A003D3ECD /* Alien.swift */; };
 		3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784C2082557C003D3ECD /* CollisonCategory.swift */; };
+		3459C809208B4326002F1F05 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3459C808208B4326002F1F05 /* explosion.mp3 */; };
 		34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */; };
 		34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A2207821C300B46476 /* AppDelegate.swift */; };
 		34FCE9A5207821C300B46476 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A4207821C300B46476 /* art.scnassets */; };
@@ -28,6 +29,7 @@
 		34527848208254BE003D3ECD /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		3452784A2082550A003D3ECD /* Alien.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
 		3452784C2082557C003D3ECD /* CollisonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisonCategory.swift; sourceTree = "<group>"; };
+		3459C808208B4326002F1F05 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
 		34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		34FCE99F207821C300B46476 /* EnigmaAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnigmaAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FCE9A2207821C300B46476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,21 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
+		3459C806208B41FE002F1F05 /* Game Flow */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Game Flow";
+			sourceTree = "<group>";
+		};
+		3459C807208B4307002F1F05 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				3459C808208B4326002F1F05 /* explosion.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		34FCE996207821C300B46476 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				34FCE9A2207821C300B46476 /* AppDelegate.swift */,
+				3459C807208B4307002F1F05 /* Sounds */,
 				34FCE9A4207821C300B46476 /* art.scnassets */,
 				34FCE9B62078259400B46476 /* QuestViewController.swift */,
 				34FCE9A6207821C300B46476 /* HomeViewController.swift */,
@@ -92,6 +110,7 @@
 				3428E4782083AF200058C07F /* Utilities.swift */,
 				34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */,
 				34FCE9B0207821C300B46476 /* Info.plist */,
+				3459C806208B41FE002F1F05 /* Game Flow */,
 				3428E47A2083AFF20058C07F /* UI Elements */,
 			);
 			path = EnigmaAR;
@@ -160,6 +179,7 @@
 				34FCE9AF207821C300B46476 /* LaunchScreen.storyboard in Resources */,
 				34FCE9AC207821C300B46476 /* Assets.xcassets in Resources */,
 				34FCE9AA207821C300B46476 /* Main.storyboard in Resources */,
+				3459C809208B4326002F1F05 /* explosion.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

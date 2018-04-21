@@ -20,10 +20,10 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15A-M2-44r">
                                 <rect key="frame" x="223" y="580" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <segue destination="EkA-id-Eze" kind="presentation" id="sy7-qU-38N"/>
+                                    <segue destination="EkA-id-Eze" kind="show" id="D3n-ZW-E1s"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -45,15 +45,26 @@
                         <subviews>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufD-Qt-w3K">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="TOC-aX-AcA" appends="YES" id="EJB-B5-IQt"/>
+                                </connections>
                             </arscnView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZVo-v1-7F5"/>
                     </view>
+                    <connections>
+                        <outlet property="sceneView" destination="ufD-Qt-w3K" id="Ycx-sh-aJx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sad-yR-K5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="TOC-aX-AcA" userLabel="Fire">
+                    <connections>
+                        <action selector="didTapScreen:" destination="EkA-id-Eze" id="krS-ld-hDr"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-287" y="595"/>
         </scene>

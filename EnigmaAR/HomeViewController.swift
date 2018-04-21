@@ -14,6 +14,8 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   @IBOutlet weak var sceneView: ARSCNView!
   var screenCenter: CGPoint?
   let planeHeight: CGFloat = 0.01
+  var currentPlaneNode: SCNPlane!
+  var currentAnchor: ARPlaneAnchor!
   
   // MARK: - Queues
   
@@ -48,17 +50,25 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   
   // MARK: - Actions
   
-  @IBAction func didTapScreen(_ sender: UITapGestureRecognizer) { // fire bullet in direction camera is facing
+  @IBAction func didTapScreen(_ sender: UITapGestureRecognizer) {
+    // fire bullet in direction camera is facing
     
     // Play torpedo sound when bullet is launched
     
 //    self.playSoundEffect(ofType: .torpedo)
-    
+//
+//    let tapLocation = sender.location(in: self.sceneView)
+//    let hitTestResults = self.sceneView.hitTest(tapLocation, types: .estimatedHorizontalPlane)
+//
+//    guard let hitTestResult = hitTestResults.first else { return }
+//    let t = hitTestResult.worldTransform.translation
+//    self.addAlienNode(position: SCNVector3(t.x, t.y, t.z))
+
     let bulletsNode = Bullet()
-    
-    let (direction, position) = self.getUserVector()
+
+    let (direction, position) = getUserVector()
     bulletsNode.position = position // SceneKit/AR coordinates are in meters
-    
+
     let bulletDirection = direction
     bulletsNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
@@ -66,20 +76,14 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   }
   
   func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
-    
     // Play collision sound for all collisions (bullet-bullet, etc.)
-    
 //    self.playSoundEffect(ofType: .collision)
     
     if explosion {
       
-      // Play explosion sound for bullet-ship collisions
-      
-//      self.playSoundEffect(ofType: .explosion)
-      
-//      let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: nil)
+      let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: "art.scnassets")
       let systemNode = SCNNode()
-//      systemNode.addParticleSystem(particleSystem!)
+      systemNode.addParticleSystem(particleSystem!)
       // place explosion where node is
       systemNode.position = node.position
       sceneView.scene.rootNode.addChildNode(systemNode)
@@ -93,20 +97,19 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   // MARK: - Contact Delegate
   
   func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-    //print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask, contact.nodeB.physicsBody!.categoryBitMask)
-    if contact.nodeA.physicsBody?.categoryBitMask == CollisionCategory.alien.rawValue || contact.nodeB.physicsBody?.categoryBitMask == CollisionCategory.alien.rawValue { // this conditional is not required--we've used the bit masks to ensure only one type of collision takes place--will be necessary as soon as more collisions are created/enabled
-      
-      print("Hit alien!")
-      self.removeNodeWithAnimation(contact.nodeB, explosion: false) // remove the bullet
+    print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask, contact.nodeB.physicsBody!.categoryBitMask)
+    
+    print("Hit alien!")
+    // remove the bullet
+    self.removeNodeWithAnimation(contact.nodeB, explosion: false)
 //      self.userScore += 1
-      
+    
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-        // remove/replace ship after half a second to visualize collision
+      // // remove/replace ship after half a second to visualize collision
         self.removeNodeWithAnimation(contact.nodeA, explosion: true)
-        self.addAlienNode()
+//        self.addAlienNode()
       })
-      
-    }
+    
   }
   
    // MARK: - Game Functionality
@@ -126,65 +129,34 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
     
     // Show statistics such as fps and timing information, debuge options
     sceneView.showsStatistics = true
-    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-    
-    // Create a new empty scene
-    let scene = SCNScene()
+    sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
     
     // Set the scene to the view
-    sceneView.scene = scene
+    sceneView.scene = SCNScene()
     sceneView.scene.physicsWorld.contactDelegate = self
-    
-    // adds aliens
-    addAlienNode()
   }
   
   
-  private func addAlienNode() {
+  func addAlienNode(position: SCNNode) {
     let alienNode = Alien()
     
-    let posX = floatBetween(-0.5, and: 0.5 )
-    let posY = floatBetween(-0.5, and: 0.5 )
-//    let posY = currentPlane.anchor.center.x
-    alienNode.position = SCNVector3(posX, posY, 0) // SceneKit/AR coordinates are in meters
-//    return alienNode
+//    let x = position.x
+//    let y = position.y
+//    let z = position.z
+
+    
     sceneView.scene.rootNode.addChildNode(alienNode)
-  }
-  
-  func floatBetween(_ first: Float,  and second: Float) -> Float {
-    // random float between upper and lower bound (inclusive)
-    return (Float(arc4random()) / Float(UInt32.max)) * (first - second) + second
-  }
-  
-  func getUserVector() -> (SCNVector3, SCNVector3) { // (direction, position)
-    if let frame = self.sceneView.session.currentFrame {
-      let mat = SCNMatrix4(frame.camera.transform) // 4x4 transform matrix describing camera in world space
-      let dir = SCNVector3(-1 * mat.m31, -1 * mat.m32, -1 * mat.m33) // orientation of camera in world space
-      let pos = SCNVector3(mat.m41, mat.m42, mat.m43) // location of camera in world space
-      
-      return (dir, pos)
-    }
-    return (SCNVector3(0, 0, -1), SCNVector3(0, 0, -0.2))
+//    let planeAnchorNode = sceneView.node(for: currentAnchor)!
+    let objPos = position.convertPosition(alienNode.position, from: position)
+    let x = objPos.x
+    let y = objPos.y
+    let z = objPos.z
+    alienNode.position = SCNVector3(x, y, z)
+    
   }
   
   func configureLighting() {
     sceneView.autoenablesDefaultLighting = true
     sceneView.automaticallyUpdatesLighting = true
-  }
-  
-  
-  func session(_ session: ARSession, didFailWithError error: Error) {
-    // Present an error message to the user
-    print("Session failed with error: \(error.localizedDescription)")
-  }
-  
-  func sessionWasInterrupted(_ session: ARSession) {
-    // Inform the user that the session has been interrupted, for example, by presenting an overlay
-    
-  }
-  
-  func sessionInterruptionEnded(_ session: ARSession) {
-    // Reset tracking and/or remove existing anchors if consistent tracking is required
-    
   }
 }
