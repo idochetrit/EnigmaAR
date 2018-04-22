@@ -22,23 +22,31 @@ extension HomeViewController : ARSCNViewDelegate {
    @return Node that will be mapped to the anchor or nil.
    */
   func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-
-    // This visualization covers only detected planes.
     guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-
-    // Create a SceneKit plane to visualize the node using its position and extent.
-    let plane = SCNPlane(width: CGFloat(planeAnchor.extent.x), height: CGFloat(planeAnchor.extent.z))
+    
+    // 2
+    let width = CGFloat(planeAnchor.extent.x)
+    let height = CGFloat(planeAnchor.extent.z)
+    let plane = SCNPlane(width: width, height: height)
+    
+    // 3
+    plane.materials.first?.diffuse.contents = UIColor.lightGray
+    
+    // 4
     let planeNode = SCNNode(geometry: plane)
-    planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-
-    // SCNPlanes are vertically oriented in their local coordinate space.
-    // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
-    planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
-
-    // ARKit owns the node corresponding to the anchor, so make the plane a child node.
-    currentAnchor = planeAnchor
+    planeNode.position = SCNVector3Make(planeAnchor.center.x,
+                                        planeAnchor.center.y,
+                                        planeAnchor.center.z)
+    planeNode.eulerAngles.x = -.pi / 2
+    
+    // 6
     node.addChildNode(planeNode)
-    addAlienNode(position: planeNode)
+    
+    DispatchQueue.main.async {
+      if (self.aliens.count < 5) {
+        self.addAlienNode(node: planeNode, index: self.aliens.count)
+      }
+    }
   }
   
   func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
@@ -46,12 +54,12 @@ extension HomeViewController : ARSCNViewDelegate {
       let planeNode = node.childNodes.first,
       let plane = planeNode.geometry as? SCNPlane
       else { return }
-    
+
     let width = CGFloat(planeAnchor.extent.x)
     let height = CGFloat(planeAnchor.extent.z)
     plane.width = width
     plane.height = height
-    
+
     // 3
     let x = CGFloat(planeAnchor.center.x)
     let y = CGFloat(planeAnchor.center.y)
@@ -59,6 +67,14 @@ extension HomeViewController : ARSCNViewDelegate {
     planeNode.position = SCNVector3(x, y, z)
   }
   
+  func addCrosshair() {
+    let node = SCNNode()
+    node.geometry?.materials.first?.diffuse.contents = UIImage(named: "crosshair")
+//    let center = self.view.center
+//    guard let realWorldPosition = self.sceneView.scene.realWorldPosition(for: center) else { return }
+    node.position = SCNVector3(0,0,0)
+    sceneView.scene.rootNode.addChildNode(node)
+  }
   
   func floatBetween(_ first: Float,  and second: Float) -> Float {
     // random float between upper and lower bound (inclusive)

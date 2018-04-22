@@ -12,11 +12,10 @@ import ARKit
 class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
 
   @IBOutlet weak var sceneView: ARSCNView!
-  var screenCenter: CGPoint?
-  let planeHeight: CGFloat = 0.01
-  var currentPlaneNode: SCNPlane!
+  var screenCenter: CGPoint!
   var currentAnchor: ARPlaneAnchor!
-  
+  var aliens : [Alien] = []
+  var hasAliens : Bool = false
   // MARK: - Queues
   
   override func viewDidLoad() {
@@ -66,12 +65,16 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
 
     let bulletsNode = Bullet()
 
-    let (direction, position) = getUserVector()
-    bulletsNode.position = position // SceneKit/AR coordinates are in meters
+    let (dir, pos) = getUserVector()
+    bulletsNode.position = pos // SceneKit/AR coordinates are in meters
 
-    let bulletDirection = direction
-    bulletsNode.physicsBody?.applyForce(bulletDirection, asImpulse: true)
+    let bulletVector = SCNVector3(dir.x * 4, dir.y * 4, dir.z * 4)
+    bulletsNode.physicsBody?.applyForce(bulletVector, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0, execute: {
+      self.removeNodeWithAnimation(bulletsNode, explosion: false)
+    })
     
   }
   
@@ -129,30 +132,33 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
     
     // Show statistics such as fps and timing information, debuge options
     sceneView.showsStatistics = true
-    sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
+//    sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
     
     // Set the scene to the view
     sceneView.scene = SCNScene()
     sceneView.scene.physicsWorld.contactDelegate = self
+    
+    addCrosshair()
   }
   
   
-  func addAlienNode(position: SCNNode) {
+  func addAlienNode(node: SCNNode, index: Int) {
     let alienNode = Alien()
-    
-//    let x = position.x
-//    let y = position.y
-//    let z = position.z
 
+    let objPos = node.convertPosition(alienNode.position, from: node)
+//    let toggled = (index % 2 == 0)
+    let insertionYOffset : Float = 1.7
+    let x = objPos.x + Float(index) * (0.3)
+    let y = objPos.y - insertionYOffset
+    let z = objPos.z - 0.5
+
+    alienNode.position = SCNVector3(x, y, z)
+    alienNode.eulerAngles.x = -.pi / 2
+    print("Alien pos. ", alienNode.position)
+    print("Plane Node pos. ", node.position)
     
     sceneView.scene.rootNode.addChildNode(alienNode)
-//    let planeAnchorNode = sceneView.node(for: currentAnchor)!
-    let objPos = position.convertPosition(alienNode.position, from: position)
-    let x = objPos.x
-    let y = objPos.y
-    let z = objPos.z
-    alienNode.position = SCNVector3(x, y, z)
-    
+    aliens.append(alienNode)
   }
   
   func configureLighting() {
