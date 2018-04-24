@@ -12,17 +12,21 @@ import ARKit
 class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
 
   @IBOutlet weak var sceneView: ARSCNView!
-  var screenCenter: CGPoint!
-  var currentAnchor: ARPlaneAnchor!
-  var aliens : [Alien] = []
-  var hasAliens : Bool = false
+  var player: AVAudioPlayer!
+  var aliens: [Alien] = []
+  var planeNodes: [Plane] = []
+  var timer: Timer!
+  
+  // componenets
+  var labelNode: SKLabelNode!
+  var hudNode: SCNNode!
+  
   // MARK: - Queues
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     // Show statistics such as fps and timing information
-    configureLighting()
     setUpWorld()
   }
   
@@ -44,31 +48,65 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
     super.didReceiveMemoryWarning()
     // Release any cached data, images, etc that aren't in use.
   }
-
+  
+  // MARK: - Game Functionality
+  
+  private func configureSession() {
+    // Create a session configuration
+    let configuration = ARWorldTrackingConfiguration()
+    configuration.planeDetection = .horizontal
+    configuration.isLightEstimationEnabled = true
+    
+    // Run the view's session
+    sceneView.session.run(configuration)
+  }
+  
+  private func setUpWorld() {
+    // Set the view's delegate
+    sceneView.delegate = self
+    
+    // Show statistics such as fps and timing information, debuge options
+    sceneView.showsStatistics = true
+    sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, .showPhysicsShapes]
+    
+    // Set the scene to the view
+    sceneView.scene = SCNScene()
+    sceneView.scene.physicsWorld.contactDelegate = self
+    configureLighting()
+//    addCrosshair()
+//    initHUD()
+    if (timer == nil) {
+      self.timer = Timer.scheduledTimer(timeInterval: 5.0, target: self,
+                                        selector: #selector(self.addAlienTimed),
+                                        userInfo: nil, repeats: true)
+    }
+  }
+  
+  @objc func addAlienTimed() {
+    // choose plane node
+    if (self.aliens.count < 8 && self.planeNodes.count > 0) {
+      guard let node = self.planeNodes.randomItem()
+        else {return}
+      DispatchQueue.main.async {
+        self.addAlienNode(planeNode: node, index: self.aliens.count)
+      }
+    }
+  }
   
   
   // MARK: - Actions
   
   @IBAction func didTapScreen(_ sender: UITapGestureRecognizer) {
     // fire bullet in direction camera is facing
-    
     // Play torpedo sound when bullet is launched
     
-//    self.playSoundEffect(ofType: .torpedo)
-//
-//    let tapLocation = sender.location(in: self.sceneView)
-//    let hitTestResults = self.sceneView.hitTest(tapLocation, types: .estimatedHorizontalPlane)
-//
-//    guard let hitTestResult = hitTestResults.first else { return }
-//    let t = hitTestResult.worldTransform.translation
-//    self.addAlienNode(position: SCNVector3(t.x, t.y, t.z))
-
+    //    self.playSoundEffect(ofType: .torpedo)
     let bulletsNode = Bullet()
-
+    
     let (dir, pos) = getUserVector()
     bulletsNode.position = pos // SceneKit/AR coordinates are in meters
-
-    let bulletVector = SCNVector3(dir.x * 4, dir.y * 4, dir.z * 4)
+    
+    let bulletVector = SCNVector3(dir.x * 3.5, dir.y * 3.5, dir.z * 3.5)
     bulletsNode.physicsBody?.applyForce(bulletVector, asImpulse: true)
     sceneView.scene.rootNode.addChildNode(bulletsNode)
     
@@ -80,9 +118,11 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   
   func removeNodeWithAnimation(_ node: SCNNode, explosion: Bool) {
     // Play collision sound for all collisions (bullet-bullet, etc.)
-//    self.playSoundEffect(ofType: .collision)
     
     if explosion {
+      DispatchQueue.main.async {
+        self.playSoundEffect(ofType: .explosion)
+      }
       
       let particleSystem = SCNParticleSystem(named: "explosion", inDirectory: "art.scnassets")
       let systemNode = SCNNode()
@@ -99,70 +139,58 @@ class HomeViewController: UIViewController, SCNPhysicsContactDelegate {
   
   // MARK: - Contact Delegate
   
-  func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-    print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask, contact.nodeB.physicsBody!.categoryBitMask)
+  func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact) {
+    print("did begin contact", contact.nodeA.physicsBody!.categoryBitMask,
+          contact.nodeB.physicsBody!.categoryBitMask)
     
     print("Hit alien!")
+    
+    var collisionBoxNode: SCNNode!
+    if contact.nodeA.physicsBody?.categoryBitMask == Bullet.BitMask {
+      collisionBoxNode = contact.nodeB
+    } else {
+      collisionBoxNode = contact.nodeA
+    }
+    var contactNode: SCNNode!
+    if contact.nodeA.physicsBody?.categoryBitMask == Alien.BitMask {
+      contactNode = contact.nodeB
+    } else {
+      contactNode = contact.nodeA
+    }
+    
     // remove the bullet
-    self.removeNodeWithAnimation(contact.nodeB, explosion: false)
-//      self.userScore += 1
-    
-      DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+    self.removeNodeWithAnimation(collisionBoxNode, explosion: false)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
       // // remove/replace ship after half a second to visualize collision
-        self.removeNodeWithAnimation(contact.nodeA, explosion: true)
-//        self.addAlienNode()
-      })
-    
+      self.removeNodeWithAnimation(contactNode, explosion: true)
+    })
   }
-  
-   // MARK: - Game Functionality
-  
-  private func configureSession() {
-    // Create a session configuration
-    let configuration = ARWorldTrackingConfiguration()
-    configuration.planeDetection = .horizontal
-    
-    // Run the view's session
-    sceneView.session.run(configuration)
-  }
-  
-  private func setUpWorld() {
-    // Set the view's delegate
-    sceneView.delegate = self
-    
-    // Show statistics such as fps and timing information, debuge options
-    sceneView.showsStatistics = true
-//    sceneView.debugOptions = ARSCNDebugOptions.showFeaturePoints
-    
-    // Set the scene to the view
-    sceneView.scene = SCNScene()
-    sceneView.scene.physicsWorld.contactDelegate = self
-    
-    addCrosshair()
-  }
-  
-  
-  func addAlienNode(node: SCNNode, index: Int) {
-    let alienNode = Alien()
 
-    let objPos = node.convertPosition(alienNode.position, from: node)
-//    let toggled = (index % 2 == 0)
-    let insertionYOffset : Float = 1.7
-    let x = objPos.x + Float(index) * (0.3)
-    let y = objPos.y - insertionYOffset
-    let z = objPos.z - 0.5
+  // MARK: - Sound Effects
 
-    alienNode.position = SCNVector3(x, y, z)
-    alienNode.eulerAngles.x = -.pi / 2
-    print("Alien pos. ", alienNode.position)
-    print("Plane Node pos. ", node.position)
+  func playSoundEffect(ofType effect: SoundEffect) {
     
-    sceneView.scene.rootNode.addChildNode(alienNode)
-    aliens.append(alienNode)
+    // Async to avoid substantial cost to graphics processing (may result in sound effect delay however)
+    DispatchQueue.main.async {
+      do
+      {
+        if let effectURL = Bundle.main.url(forResource: effect.rawValue, withExtension: "mp3") {
+          
+          self.player = try AVAudioPlayer(contentsOf: effectURL)
+          self.player.play()
+          
+        }
+      }
+      catch let error as NSError {
+        print(error.description)
+      }
+    }
   }
-  
-  func configureLighting() {
-    sceneView.autoenablesDefaultLighting = true
-    sceneView.automaticallyUpdatesLighting = true
-  }
+}
+ 
+
+enum SoundEffect: String {
+  case explosion = "explosion"
+  case collision = "collision"
+  case torpedo = "torpedo"
 }
