@@ -21,20 +21,14 @@
 		34FCE9AC207821C300B46476 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AB207821C300B46476 /* Assets.xcassets */; };
 		34FCE9AF207821C300B46476 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */; };
 		34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9B62078259400B46476 /* QuestViewController.swift */; };
-		5071740A208D0B0400701461 /* FSPagerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717403208D0B0300701461 /* FSPagerCollectionView.swift */; };
-		5071740B208D0B0400701461 /* FSPageViewTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717404208D0B0300701461 /* FSPageViewTransformer.swift */; };
-		5071740C208D0B0400701461 /* FSPagerViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717405208D0B0300701461 /* FSPagerViewLayoutAttributes.swift */; };
-		5071740D208D0B0400701461 /* FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717406208D0B0300701461 /* FSPagerView.swift */; };
-		5071740E208D0B0400701461 /* FSPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717407208D0B0300701461 /* FSPageControl.swift */; };
-		5071740F208D0B0400701461 /* FSPageViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717408208D0B0300701461 /* FSPageViewLayout.swift */; };
-		50717410208D0B0400701461 /* FSPagerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717409208D0B0300701461 /* FSPagerViewCell.swift */; };
 		50717413208D14B700701461 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717411208D14B700701461 /* CollectionViewCell.swift */; };
 		50717414208D14B700701461 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50717412208D14B700701461 /* CollectionViewCell.xib */; };
 		5071741A208FCB7500701461 /* ChallengeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50717419208FCB7500701461 /* ChallengeInfoViewController.swift */; };
+		F15169167279F772F4DD40AE /* Pods_EnigmaAR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E1281A34861AA13EBCE437 /* Pods_EnigmaAR.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		24C07539FD4F64704658165B /* Pods-EnigmaAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnigmaAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR.release.xcconfig"; sourceTree = "<group>"; };
+		1C5DA90BFC16123C9E6D939B /* Pods-EnigmaAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnigmaAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR.release.xcconfig"; sourceTree = "<group>"; };
 		3428E4782083AF200058C07F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3428E47D2083B0170058C07F /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		34527848208254BE003D3ECD /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
@@ -51,17 +45,11 @@
 		34FCE9AE207821C300B46476 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34FCE9B0207821C300B46476 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34FCE9B62078259400B46476 /* QuestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestViewController.swift; sourceTree = "<group>"; };
-		50717403208D0B0300701461 /* FSPagerCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerCollectionView.swift; sourceTree = "<group>"; };
-		50717404208D0B0300701461 /* FSPageViewTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewTransformer.swift; sourceTree = "<group>"; };
-		50717405208D0B0300701461 /* FSPagerViewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerViewLayoutAttributes.swift; sourceTree = "<group>"; };
-		50717406208D0B0300701461 /* FSPagerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerView.swift; sourceTree = "<group>"; };
-		50717407208D0B0300701461 /* FSPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageControl.swift; sourceTree = "<group>"; };
-		50717408208D0B0300701461 /* FSPageViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPageViewLayout.swift; sourceTree = "<group>"; };
-		50717409208D0B0300701461 /* FSPagerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSPagerViewCell.swift; sourceTree = "<group>"; };
 		50717411208D14B700701461 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		50717412208D14B700701461 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		50717419208FCB7500701461 /* ChallengeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeInfoViewController.swift; sourceTree = "<group>"; };
-		FD13DEE8F9463E08EB8AACF3 /* Pods-EnigmaAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnigmaAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR.debug.xcconfig"; sourceTree = "<group>"; };
+		D8E1281A34861AA13EBCE437 /* Pods_EnigmaAR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EnigmaAR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA25ADDDC0D9478B321EC756 /* Pods-EnigmaAR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnigmaAR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F15169167279F772F4DD40AE /* Pods_EnigmaAR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,8 +96,8 @@
 			children = (
 				34FCE9A1207821C300B46476 /* EnigmaAR */,
 				34FCE9A0207821C300B46476 /* Products */,
-				6C3C6980E30B873296E7D03A /* Pods */,
-				EFDD1F5A4A63853E4868513D /* Frameworks */,
+				8B5090DE2CA40A8117C952A3 /* Pods */,
+				AF08CB3BFF46D2BA8295F86F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,7 +112,6 @@
 		34FCE9A1207821C300B46476 /* EnigmaAR */ = {
 			isa = PBXGroup;
 			children = (
-				50717402208D0AF400701461 /* FSPage */,
 				34FCE9A2207821C300B46476 /* AppDelegate.swift */,
 				3459C807208B4307002F1F05 /* Sounds */,
 				34FCE9A4207821C300B46476 /* art.scnassets */,
@@ -144,32 +132,19 @@
 			path = EnigmaAR;
 			sourceTree = "<group>";
 		};
-		50717402208D0AF400701461 /* FSPage */ = {
+		8B5090DE2CA40A8117C952A3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				50717407208D0B0300701461 /* FSPageControl.swift */,
-				50717403208D0B0300701461 /* FSPagerCollectionView.swift */,
-				50717406208D0B0300701461 /* FSPagerView.swift */,
-				50717409208D0B0300701461 /* FSPagerViewCell.swift */,
-				50717405208D0B0300701461 /* FSPagerViewLayoutAttributes.swift */,
-				50717408208D0B0300701461 /* FSPageViewLayout.swift */,
-				50717404208D0B0300701461 /* FSPageViewTransformer.swift */,
-			);
-			path = FSPage;
-			sourceTree = "<group>";
-		};
-		6C3C6980E30B873296E7D03A /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				FD13DEE8F9463E08EB8AACF3 /* Pods-EnigmaAR.debug.xcconfig */,
-				24C07539FD4F64704658165B /* Pods-EnigmaAR.release.xcconfig */,
+				FA25ADDDC0D9478B321EC756 /* Pods-EnigmaAR.debug.xcconfig */,
+				1C5DA90BFC16123C9E6D939B /* Pods-EnigmaAR.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		EFDD1F5A4A63853E4868513D /* Frameworks */ = {
+		AF08CB3BFF46D2BA8295F86F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D8E1281A34861AA13EBCE437 /* Pods_EnigmaAR.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -181,10 +156,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 34FCE9B3207821C300B46476 /* Build configuration list for PBXNativeTarget "EnigmaAR" */;
 			buildPhases = (
-				359CB70C3524D0F2F8065CA7 /* [CP] Check Pods Manifest.lock */,
+				B0C588FDDF2E8D58BE5E4A94 /* [CP] Check Pods Manifest.lock */,
 				34FCE99B207821C300B46476 /* Sources */,
 				34FCE99C207821C300B46476 /* Frameworks */,
 				34FCE99D207821C300B46476 /* Resources */,
+				04CEB0E7A8951F253453E5A5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +222,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		359CB70C3524D0F2F8065CA7 /* [CP] Check Pods Manifest.lock */ = {
+		04CEB0E7A8951F253453E5A5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0C588FDDF2E8D58BE5E4A94 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -275,18 +271,11 @@
 				3428E47E2083B0170058C07F /* Plane.swift in Sources */,
 				50717413208D14B700701461 /* CollectionViewCell.swift in Sources */,
 				34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */,
-				50717410208D0B0400701461 /* FSPagerViewCell.swift in Sources */,
-				5071740D208D0B0400701461 /* FSPagerView.swift in Sources */,
 				34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */,
-				5071740C208D0B0400701461 /* FSPagerViewLayoutAttributes.swift in Sources */,
 				34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */,
-				5071740E208D0B0400701461 /* FSPageControl.swift in Sources */,
 				5071741A208FCB7500701461 /* ChallengeInfoViewController.swift in Sources */,
-				5071740B208D0B0400701461 /* FSPageViewTransformer.swift in Sources */,
 				3452784B2082550A003D3ECD /* Alien.swift in Sources */,
 				3428E4792083AF200058C07F /* Utilities.swift in Sources */,
-				5071740A208D0B0400701461 /* FSPagerCollectionView.swift in Sources */,
-				5071740F208D0B0400701461 /* FSPageViewLayout.swift in Sources */,
 				3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */,
 				34527849208254BE003D3ECD /* Bullet.swift in Sources */,
 			);
@@ -427,11 +416,12 @@
 		};
 		34FCE9B4207821C300B46476 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FD13DEE8F9463E08EB8AACF3 /* Pods-EnigmaAR.debug.xcconfig */;
+			baseConfigurationReference = FA25ADDDC0D9478B321EC756 /* Pods-EnigmaAR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KB4BTXD92;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = EnigmaAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idochetrit.EnigmaAR;
@@ -443,11 +433,12 @@
 		};
 		34FCE9B5207821C300B46476 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 24C07539FD4F64704658165B /* Pods-EnigmaAR.release.xcconfig */;
+			baseConfigurationReference = 1C5DA90BFC16123C9E6D939B /* Pods-EnigmaAR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7KB4BTXD92;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = EnigmaAR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.idochetrit.EnigmaAR;

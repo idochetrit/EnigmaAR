@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import Hero
 
 class ChallengeInfoViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-//    self.hero
+    self.hero.isEnabled = true
+    self.view.hero.id = "challengeInfo"
 
     // Do any additional setup after loading the view.
   }

@@ -1,16 +1,20 @@
 PODS:
+  - FSPagerView (0.7.1)
   - Hero (1.2.0)
 
 DEPENDENCIES:
+  - FSPagerView
   - Hero (~> 1.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - FSPagerView
     - Hero
 
 SPEC CHECKSUMS:
+  FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   Hero: 33dadf2cd1c98af71e213dcbc2902e6e03622a4e
 
-PODFILE CHECKSUM: 3b5875fa09dbc0b98b45a53a5b3cd3ef186bb0a2
+PODFILE CHECKSUM: 09e9873a82116e21f22d5eb39d94b0f05ab72758
 
 COCOAPODS: 1.5.0

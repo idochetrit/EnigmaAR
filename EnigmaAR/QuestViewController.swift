@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FSPagerView
+import Hero
 
 class QuestViewController: UIViewController , FSPagerViewDataSource, FSPagerViewDelegate {
   
@@ -52,7 +54,9 @@ class QuestViewController: UIViewController , FSPagerViewDataSource, FSPagerView
   
   func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
     let viewController = ChallengeInfoViewController()
-//    viewController.
+    viewController.hero.modalAnimationType = .pageIn(direction: .up)
+
+    self.present(viewController, animated: true, completion: nil)
   }
   
   override func viewDidLoad() {

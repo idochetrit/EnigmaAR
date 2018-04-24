@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C17BB2755464015D6616349511A0290D"
-               BlueprintName = "Pods-EnigmaAR"
+               BlueprintIdentifier = "ED279AFE7EA745A57B7B9F35AD5F2C9F"
+               BlueprintName = "FSPagerView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "Pods-EnigmaAR.framework">
+               BuildableName = "FSPagerView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

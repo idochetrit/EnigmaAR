@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class CollectionViewCell: FSPagerViewCell {
+import FSPagerView
+class CollectionViewCell:  FSPagerViewCell {
 
   
 
@@ -19,7 +19,6 @@ class CollectionViewCell: FSPagerViewCell {
   override func awakeFromNib() {
       super.awakeFromNib()
       // Initialization code
-    
   }
   
   override func layoutSubviews() {
