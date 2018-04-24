@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3428E4792083AF200058C07F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428E4782083AF200058C07F /* Utilities.swift */; };
-		3428E47E2083B0170058C07F /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3428E47D2083B0170058C07F /* Plane.swift */; };
-		34527849208254BE003D3ECD /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34527848208254BE003D3ECD /* Bullet.swift */; };
-		3452784B2082550A003D3ECD /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784A2082550A003D3ECD /* Alien.swift */; };
-		3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452784C2082557C003D3ECD /* CollisonCategory.swift */; };
 		3459C809208B4326002F1F05 /* explosion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3459C808208B4326002F1F05 /* explosion.mp3 */; };
+		345DFAC5208FD68400F95536 /* Alien.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DFAC2208FD68400F95536 /* Alien.swift */; };
+		345DFAC6208FD68400F95536 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DFAC3208FD68400F95536 /* Bullet.swift */; };
+		345DFAC7208FD68400F95536 /* Plane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345DFAC4208FD68400F95536 /* Plane.swift */; };
 		34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */; };
 		34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCE9A2207821C300B46476 /* AppDelegate.swift */; };
 		34FCE9A5207821C300B46476 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FCE9A4207821C300B46476 /* art.scnassets */; };
@@ -30,11 +29,10 @@
 /* Begin PBXFileReference section */
 		1C5DA90BFC16123C9E6D939B /* Pods-EnigmaAR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EnigmaAR.release.xcconfig"; path = "Pods/Target Support Files/Pods-EnigmaAR/Pods-EnigmaAR.release.xcconfig"; sourceTree = "<group>"; };
 		3428E4782083AF200058C07F /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		3428E47D2083B0170058C07F /* Plane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
-		34527848208254BE003D3ECD /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-		3452784A2082550A003D3ECD /* Alien.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
-		3452784C2082557C003D3ECD /* CollisonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisonCategory.swift; sourceTree = "<group>"; };
 		3459C808208B4326002F1F05 /* explosion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = explosion.mp3; sourceTree = "<group>"; };
+		345DFAC2208FD68400F95536 /* Alien.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alien.swift; sourceTree = "<group>"; };
+		345DFAC3208FD68400F95536 /* Bullet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		345DFAC4208FD68400F95536 /* Plane.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plane.swift; sourceTree = "<group>"; };
 		34BA88EB208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeTabViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
 		34FCE99F207821C300B46476 /* EnigmaAR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnigmaAR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FCE9A2207821C300B46476 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,18 +62,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3428E47A2083AFF20058C07F /* UI Elements */ = {
-			isa = PBXGroup;
-			children = (
-				3452784C2082557C003D3ECD /* CollisonCategory.swift */,
-				34527848208254BE003D3ECD /* Bullet.swift */,
-				3452784A2082550A003D3ECD /* Alien.swift */,
-				3428E47D2083B0170058C07F /* Plane.swift */,
-			);
-			name = "UI Elements";
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		3459C806208B41FE002F1F05 /* Game Flow */ = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +75,16 @@
 				3459C808208B4326002F1F05 /* explosion.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		345DFAC1208FD68400F95536 /* UI Elements */ = {
+			isa = PBXGroup;
+			children = (
+				345DFAC2208FD68400F95536 /* Alien.swift */,
+				345DFAC3208FD68400F95536 /* Bullet.swift */,
+				345DFAC4208FD68400F95536 /* Plane.swift */,
+			);
+			path = "UI Elements";
 			sourceTree = "<group>";
 		};
 		34FCE996207821C300B46476 = {
@@ -126,8 +122,8 @@
 				3428E4782083AF200058C07F /* Utilities.swift */,
 				34FCE9AD207821C300B46476 /* LaunchScreen.storyboard */,
 				34FCE9B0207821C300B46476 /* Info.plist */,
+				345DFAC1208FD68400F95536 /* UI Elements */,
 				3459C806208B41FE002F1F05 /* Game Flow */,
-				3428E47A2083AFF20058C07F /* UI Elements */,
 			);
 			path = EnigmaAR;
 			sourceTree = "<group>";
@@ -268,16 +264,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				34FCE9A7207821C300B46476 /* HomeViewController.swift in Sources */,
-				3428E47E2083B0170058C07F /* Plane.swift in Sources */,
+
 				50717413208D14B700701461 /* CollectionViewCell.swift in Sources */,
 				34BA88EC208291B5004D57EC /* HomeTabViewController+ARSCNViewDelegate.swift in Sources */,
 				34FCE9A3207821C300B46476 /* AppDelegate.swift in Sources */,
+				345DFAC6208FD68400F95536 /* Bullet.swift in Sources */,
+				345DFAC5208FD68400F95536 /* Alien.swift in Sources */,
 				34FCE9B72078259400B46476 /* QuestViewController.swift in Sources */,
 				5071741A208FCB7500701461 /* ChallengeInfoViewController.swift in Sources */,
-				3452784B2082550A003D3ECD /* Alien.swift in Sources */,
+				345DFAC7208FD68400F95536 /* Plane.swift in Sources */,
 				3428E4792083AF200058C07F /* Utilities.swift in Sources */,
-				3452784D2082557C003D3ECD /* CollisonCategory.swift in Sources */,
-				34527849208254BE003D3ECD /* Bullet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,15 @@
          contextName = "Alien.init():Alien.swift">
          <PersistentStrings>
             <PersistentString
+               value = "rootAlienNode.physicsBody">
+            </PersistentString>
+            <PersistentString
+               value = "self.physicsBody">
+            </PersistentString>
+            <PersistentString
+               value = "alienScene.rootNode.childNodes.last?.childNodes">
+            </PersistentString>
+            <PersistentString
                value = "alienScene.rootNode.childNodes">
             </PersistentString>
          </PersistentStrings>
