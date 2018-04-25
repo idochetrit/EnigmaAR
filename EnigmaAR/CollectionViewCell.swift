@@ -10,8 +10,6 @@ import UIKit
 import FSPagerView
 class CollectionViewCell:  FSPagerViewCell {
 
-  
-
   @IBOutlet weak var prizeImage: UIImageView!
   @IBOutlet weak var descrip: UILabel!
   @IBOutlet weak var title: UILabel!
@@ -33,8 +31,6 @@ class CollectionViewCell:  FSPagerViewCell {
     title.layer.shadowOpacity = 1.0
     title.layer.shadowOffset = CGSize(width: 4, height: 4)
     title.layer.masksToBounds = false
-    
-    
     
     descrip.lineBreakMode = .byWordWrapping
     descrip.numberOfLines = 4
